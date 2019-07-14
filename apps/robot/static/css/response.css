@@ -1,13 +1,15 @@
 .ad {
     width: 400px;
-    padding: 20px;
     margin: 10px;
-    line-height: 2;
     background-color: rgb(65,105,225);
-    text-align: left;
-    display: inline-block;
+    border: 2px solid blue;
+    padding: 20px;
+    border-radius: 50px 20px;
 }
 
 .line_adress {
     color: white;
+    text-align: left;
+    margin-bottom: 0;
+    margin-top: 0;
 }
