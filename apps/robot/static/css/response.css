@@ -1,0 +1,13 @@
+.ad {
+    width: 400px;
+    padding: 20px;
+    margin: 10px;
+    line-height: 2;
+    background-color: rgb(65,105,225);
+    text-align: left;
+    display: inline-block;
+}
+
+.line_adress {
+    color: white;
+}
