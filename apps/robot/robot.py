@@ -5,7 +5,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from .utils import parse, parse_text_wiki
 
 app = Flask(__name__)
-app.config['GOOGLEMAPS_KEY'] = 'AIzaSyAENWDfGkNfvPEJP6t2ghSWh74tSnpszIM'
+app.config['GOOGLEMAPS_KEY'] = ''
 
 
 @app.route('/', methods=['GET'])
