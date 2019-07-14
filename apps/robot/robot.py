@@ -1,6 +1,6 @@
 import requests
 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 
 from .utils import parse, parse_text_wiki
 
@@ -8,15 +8,15 @@ app = Flask(__name__)
 app.config['GOOGLEMAPS_KEY'] = ''
 
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def question():
-    if request.method == 'GET':
-        return render_template('robot_template.html')
+    return render_template('robot_template.html')
 
 
-@app.route('/result', methods=['GET', 'POST'])
+
+@app.route('/result', methods=['POST'])
 def result():
-    query = ' '.join(parse(request.form['question']))
+    query = ' '.join(parse(request.args['question']))
     search_url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?"
     search_url_wiki = "https://fr.wikipedia.org/w/api.php?"
 
@@ -71,9 +71,9 @@ def result():
                 p = q['pages']
                 parse_wiki = parse_text_wiki(p)
 
-        return render_template('robot_template.html',
-                               location=location,
-                               wiki=parse_wiki,
-                               query=query,
-                               address=exact_address,
-        )
+        return jsonify({
+            'location': location,
+            'wiki': parse_wiki,
+            'query': query,
+            'address': exact_address,
+        })
