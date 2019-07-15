@@ -14,9 +14,11 @@ def question():
 
 
 
-@app.route('/result', methods=['POST'])
+@app.route('/res', methods=['POST'])
 def result():
-    query = ' '.join(parse(request.args['question']))
+    print(request.args)
+    question = request.args['question']
+    query = ' '.join(parse(question))
     search_url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?"
     search_url_wiki = "https://fr.wikipedia.org/w/api.php?"
 
