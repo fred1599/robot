@@ -6,8 +6,6 @@ $(document).ready(function() {
                  },
              type : 'POST',
              url : '/question',
-            })
-       });
-     event.preventDefault();
-     return false;
+       })
      });
+});
