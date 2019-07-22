@@ -12,4 +12,4 @@ def parse_text_wiki(d):
     for k in d:
         if 'extract' in d[k]:
             res += d[k]['extract']
-    return wrap(res, width=40)
+    return wrap(res, width=70)

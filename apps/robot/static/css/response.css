@@ -1,13 +1,18 @@
-.ad {
+#wiki, #address {
     width: 400px;
     padding: 20px;
     margin: 10px;
-    line-height: 2;
+    line-height: 1;
     background-color: rgb(65,105,225);
     text-align: left;
     display: inline-block;
+    border-radius: 20px 10px 50px 0;
 }
 
-.line_adress {
+address {
+    color: white;
+}
+
+p.wik {
     color: white;
 }
