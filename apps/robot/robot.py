@@ -1,6 +1,6 @@
 import requests
 
-from flask import Flask, render_template, request, redirect, url_for, Response, jsonify
+from flask import Flask, render_template, request, redirect, Response
 from .utils import parse, parse_text_wiki
 
 app = Flask(__name__)
