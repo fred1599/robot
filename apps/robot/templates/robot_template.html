@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/response.css') }}"/>
     <script type=text/javascript>$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
     <link rel="shortcut icon" href="{{ url_for('static', filename='icones/favicon.ico') }}">
 </head>
@@ -31,10 +30,10 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/display.js') }}"></script>
-
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/response.css') }}"/>
 <div id="responses" class="container">
     <div class="row">
-        <div id="address" class="col-sm">
+        <div id="address">
             {% if exact_address %}
             <address>
                 {% for line in exact_address %}
@@ -43,7 +42,7 @@
             </address>
             {% endif %}
         </div>
-        <div id="wiki" class="col-sm">
+        <div id="wiki">
             {% if wiki %}
             {% for line in wiki %}
             <p class="wik">{{ line }}</p>
@@ -51,6 +50,27 @@
             {% endif %}
         </div>
     </div>
+    {% if location.lat and location.lng %}
+    <div id="map" style="width:800px;height:400px;"></div>
+    <script>
+
+      function initMap() {
+        var myLatLng = {lat: parseFloat("{{ location.lat }}"), lng: parseFloat("{{ location.lng }}")};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 18,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Map Result'
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAENWDfGkNfvPEJP6t2ghSWh74tSnpszIM&callback=initMap" async defer></script>
+    {% endif %}
 </div>
 </body>
 </html>

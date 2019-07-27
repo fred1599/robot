@@ -71,7 +71,9 @@ def question():
                         p = q['pages']
                         parse_wiki = parse_text_wiki(p)
 
-                return render_template('robot_template.html', location=location,
-                            city=city, wiki=parse_wiki, exact_address=exact_address)
+                return render_template(
+                    'robot_template.html', location=location,
+                    city=city, wiki=parse_wiki, exact_address=exact_address,
+                )
     else:
         return Response(status=400)
