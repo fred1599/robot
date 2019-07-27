@@ -7,6 +7,11 @@ app = Flask(__name__)
 app.config['GOOGLEMAPS_KEY'] = 'AIzaSyAENWDfGkNfvPEJP6t2ghSWh74tSnpszIM'
 
 
+@app.route('/')
+def index():
+    return redirect('question')
+
+
 @app.route('/question', methods=['GET', 'POST'])
 def question():
     search_url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?"
