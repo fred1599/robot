@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.config['GOOGLEMAPS_KEY'] = 'AIzaSyAENWDfGkNfvPEJP6t2ghSWh74tSnpszIM'
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
     return redirect('question')
 
