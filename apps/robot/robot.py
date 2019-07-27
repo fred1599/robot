@@ -82,3 +82,7 @@ def question():
                 )
     else:
         return Response(status=400)
+
+
+if __name__ == '__main__':
+    app.run()
