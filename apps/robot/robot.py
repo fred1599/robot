@@ -2,7 +2,9 @@ import requests
 
 from flask import render_template, request, redirect, Response
 from .utils import parse, parse_text_wiki
-from apps.run import app
+from apps import run
+
+app = run.app
 
 
 @app.route('/', methods=['GET', 'POST'])
