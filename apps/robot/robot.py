@@ -1,10 +1,13 @@
 import requests
 
-from flask import Flask, render_template, request, redirect, url_for, Response, jsonify
+from flask import render_template, request, redirect, Response
 from .utils import parse, parse_text_wiki
+from apps.run import app
 
-app = Flask(__name__)
-app.config['GOOGLEMAPS_KEY'] = ''
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    return redirect('question')
 
 
 @app.route('/question', methods=['GET', 'POST'])
@@ -71,7 +74,9 @@ def question():
                         p = q['pages']
                         parse_wiki = parse_text_wiki(p)
 
-                return render_template('robot_template.html', location=location,
-                            city=city, wiki=parse_wiki, exact_address=exact_address)
+                return render_template(
+                    'robot_template.html', location=location,
+                    city=city, wiki=parse_wiki, exact_address=exact_address,
+                )
     else:
         return Response(status=400)
