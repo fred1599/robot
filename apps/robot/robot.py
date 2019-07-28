@@ -1,10 +1,8 @@
 import requests
 
-from flask import Flask, render_template, request, redirect, Response
+from flask import render_template, request, redirect, Response
 from .utils import parse, parse_text_wiki
-
-app = Flask(__name__)
-app.config['GOOGLEMAPS_KEY'] = 'AIzaSyAENWDfGkNfvPEJP6t2ghSWh74tSnpszIM'
+from apps.run import app
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -82,7 +80,3 @@ def question():
                 )
     else:
         return Response(status=400)
-
-
-if __name__ == '__main__':
-    app.run()
