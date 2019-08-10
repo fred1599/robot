@@ -1,7 +1,7 @@
 <application>
   <component name="FindSettings">
-    <option name="customScope" value="All Places" />
-    <option name="defaultScopeName" value="All Places" />
-    <option name="SEARCH_SCOPE" value="All Places" />
+    <option name="customScope" value="File '.../robot/static/js/display.js'" />
+    <option name="defaultScopeName" value="File '.../robot/static/js/display.js'" />
+    <option name="SEARCH_SCOPE" value="File '.../robot/static/js/display.js'" />
   </component>
 </application>
