@@ -6,6 +6,10 @@
           <option name="url" value="http://gitlab.com" />
           <option name="userName" value="frederic.juppont" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://gitlab.anybox.cloud" />
+          <option name="userName" value="frederic.juppont" />
+        </UrlAndUserName>
       </list>
     </option>
   </component>
